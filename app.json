@@ -38,6 +38,19 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/PulsJakartaSans-Light.ttf",
+            "./assets/fonts/PulsJakartaSans-Regular.ttf",
+            "./assets/fonts/PulsJakartaSans-Medium.ttf",
+            "./assets/fonts/PulsJakartaSans-SemiBold.ttf",
+            "./assets/fonts/PulsJakartaSans-Bold.ttf",
+            "./assets/fonts/PulsJakartaSans-ExtraBold.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

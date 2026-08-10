@@ -1,20 +1,25 @@
 import "@/global.css";
-import { Stack } from "expo-router";
-// import { useFonts } from "expo-font";
-import { View } from "react-native";
+import { useFonts } from "expo-font";
+import { SplashScreen, Stack } from "expo-router";
+import { useEffect } from "react";
 
 export default function RootLayout() {
-  // const [fontsLoaded] = useFonts({
-  //   CairoRegular: require("../assets/fonts/Cairo-Regular.ttf"),
-  //   CairoLight: require("../assets/fonts/Cairo-Light.ttf"),
-  //   CairoMedium: require("../assets/fonts/Cairo-Medium.ttf"),
-  //   CairoSemiBold: require("../assets/fonts/Cairo-SemiBold.ttf"),
-  //   CairoBold: require("../assets/fonts/Cairo-Bold.ttf"),
-  // });
+  const [fontsLoaded] = useFonts({
+    "sans-regular": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
+    "sans-light": require("../assets/fonts/PlusJakartaSans-Light.ttf"),
+    "sans-medium": require("../assets/fonts/PlusJakartaSans-Medium.ttf"),
+    "sans-semibold": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
+    "sans-bold": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
+    "sans-extrabold": require("../assets/fonts/PlusJakartaSans-ExtraBold.ttf"),
+  });
 
-  // if (!fontsLoaded) {
-  //   return <View />;
-  // }
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
-  return <Stack screenOptions={{headerShown:false}} />;
+  if (!fontsLoaded) return null;
+
+  return <Stack screenOptions={{ headerShown: false }} />;
 }
