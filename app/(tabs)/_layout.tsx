@@ -39,6 +39,7 @@ const TabLayout = () => {
           <BlurView
             intensity={22}
             tint="light"
+            experimentalBlurMethod="dimezisBlurView"
             style={{
               flex: 1,
               borderRadius: tabBar.radius,

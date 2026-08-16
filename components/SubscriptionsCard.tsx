@@ -1,4 +1,4 @@
-import { formatStatusLabel, formatSubscriptionDateTime } from "@/lib/utils";
+import { formatCurrency, formatStatusLabel, formatSubscriptionDateTime } from "@/lib/utils";
 import { clsx } from "clsx";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
@@ -44,7 +44,7 @@ const SubscriptionsCard = ({
               className="currency-subscriptions"
               source={require("@/assets/images/Saudi_Riyal_Symbol-black.png")}
             />
-            <Text className="sub-price">{price}</Text>
+            <Text className="sub-price">{formatCurrency(price)}</Text>
           </View>
           <Text className="sub-billing">{billing}</Text>
         </View>
@@ -60,7 +60,7 @@ const SubscriptionsCard = ({
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  {paymentMethod?.trim()}
+                  {paymentMethod?.trim() ?? "Not Provider"}
                 </Text>
               </View>
             </View>

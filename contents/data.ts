@@ -83,7 +83,7 @@ export const HOME_SUBSCRIPTIONS: Subscription[] = [
     paymentMethod: "Amex ending in 1010",
     status: "paused",
     startDate: "2025-06-27T10:00:00.000Z",
-    price: 20.0,
+    price: 20.00,
     currency: "USD",
     billing: "Monthly",
     renewalDate: "2026-03-27T10:00:00.000Z",
