@@ -1,10 +1,10 @@
 import { tabs } from "@/contents/data";
-import { colors, components } from "@/contents/theme";
+import { components } from "@/contents/theme";
 import { clsx } from "clsx";
+import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import { Image, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 const tabBar = components.tabBar;
 const TabLayout = () => {
   const insets = useSafeAreaInsets();
@@ -23,19 +23,36 @@ const TabLayout = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
+
         tabBarStyle: {
           position: "absolute",
           bottom: Math.max(insets.bottom, tabBar.horizontalInset),
           height: tabBar.height,
           marginHorizontal: tabBar.horizontalInset,
           borderRadius: tabBar.radius,
-          backgroundColor: colors.primary,
+          backgroundColor: "transparent",
           borderTopWidth: 0,
           elevation: 0,
         },
+
+        tabBarBackground: () => (
+          <BlurView
+            intensity={22}
+            tint="light"
+            experimentalBlurMethod="dimezisBlurView"
+            style={{
+              flex: 1,
+              borderRadius: tabBar.radius,
+              overflow: "hidden",
+              backgroundColor: "rgba(0, 0, 0, 0.18)",
+            }}
+          />
+        ),
+        
         tabBarItemStyle: {
           paddingVertical: tabBar.height / 2 - tabBar.iconFrame / 1.6,
         },
+
         tabBarIconStyle: {
           width: tabBar.iconFrame,
           height: tabBar.iconFrame,
